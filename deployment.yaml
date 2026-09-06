@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:release-bc61b24
+        image: nginx:release-88bf6c1
