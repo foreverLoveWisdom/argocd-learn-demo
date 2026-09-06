@@ -1,17 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: gitops-app-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: gitops-app-demo
   template:
     metadata:
       labels:
-        app: nginx
+        app: gitops-app-demo
     spec:
       containers:
-      - name: nginx
-        image: nginx:release-f6bbc2e
+      - name: gitops-app-demo
+        image: docker.io/foreverlovewisdom/gitops-app-demo:release-88bf6c1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: SECRET_KEY_BASE
+          value: "throwaway-test-key-not-real-secret"
