@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gitops-app-demo
-        image: docker.io/foreverlovewisdom/gitops-app-demo:release-c4de848
+        image: docker.io/foreverlovewisdom/gitops-app-demo:release-56e5b05
         ports:
         - containerPort: 3000
         env:
