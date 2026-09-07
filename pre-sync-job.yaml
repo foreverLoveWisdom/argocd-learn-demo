@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync-check
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    # deliberately no hook-delete-policy — this is the bug we're recreating.
+    # real pre_sync_db_migrate.yaml sets:
+    #   argocd.argoproj.io/hook-delete-policy: HookSucceeded,HookFailed
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: pre-sync-check
+        image: busybox
+        command: ["sh", "-c", "echo 'checking...' && exit 1"]
