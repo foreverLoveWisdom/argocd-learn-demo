@@ -5,8 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     # deliberately no hook-delete-policy — this is the bug we're recreating.
-    # real pre_sync_db_migrate.yaml sets:
-    #   argocd.argoproj.io/hook-delete-policy: HookSucceeded,HookFailed
+    # (a real hook job would set hook-delete-policy: HookSucceeded,HookFailed)
 spec:
   backoffLimit: 0
   template:
